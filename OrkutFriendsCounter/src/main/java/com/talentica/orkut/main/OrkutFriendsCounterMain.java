@@ -34,7 +34,9 @@ public class OrkutFriendsCounterMain {
 			System.err
 					.println("Please pass input friendship grpah file location, queries file location "
 							+ "and output folder location arguments "
-							+ "e.g. D:/GraphFile/com-orkut.ungraph.txt D:/GraphFile/queries D:/GraphFile/");
+							+ "e.g. java "
+							+ OrkutFriendsCounterMain.class.getName()
+							+ " D:/GraphFile/com-orkut.ungraph.txt D:/GraphFile/queries D:/GraphFile/");
 			System.exit(1);
 		}
 		Map<String, Member> membersToGetFriendsCountInformationFor = readQueriesInputToGetFriendsCountFor(args[1]);
