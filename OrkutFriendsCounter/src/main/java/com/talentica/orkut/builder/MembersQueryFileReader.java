@@ -1,4 +1,4 @@
-package com.talentica.orkut.util;
+package com.talentica.orkut.builder;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -31,7 +31,7 @@ public class MembersQueryFileReader {
 	 * @throws IOException
 	 */
 	public Map<String, Member> readAsMap() throws IOException {
-		String lineRead = null;
+		String memberId = null;
 		Map<String, Member> membersToGetFriendsCountInformationFor = new HashMap<String, Member>();
 		FileReader queriesFileReader = null;
 		BufferedReader queriesFileBufferedReader = null;
@@ -39,8 +39,8 @@ public class MembersQueryFileReader {
 			File queriesFile = new File(fileLocation);
 			queriesFileReader = new FileReader(queriesFile);
 			queriesFileBufferedReader = new BufferedReader(queriesFileReader);
-			while ((lineRead = queriesFileBufferedReader.readLine()) != null) {
-				Member member = new Member(lineRead);
+			while ((memberId = queriesFileBufferedReader.readLine()) != null) {
+				Member member = new Member(memberId);
 				membersToGetFriendsCountInformationFor.put(member.getId(), member);
 			}
 		} finally {

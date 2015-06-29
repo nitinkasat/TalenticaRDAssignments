@@ -5,10 +5,10 @@ import java.io.IOException;
 import java.util.Date;
 import java.util.Map;
 
+import com.talentica.orkut.builder.MembersQueryFileReader;
 import com.talentica.orkut.domain.Member;
 import com.talentica.orkut.friends.FriendsCountFileWriter;
 import com.talentica.orkut.friends.MembersFriendsCounter;
-import com.talentica.orkut.util.MembersQueryFileReader;
 
 /**
  * Main class for Orkut friends counter application.
