@@ -13,7 +13,7 @@ import org.junit.Test;
 import com.talentica.orkut.domain.Member;
 
 /**
- * Test class for {@link FriendsCounter}
+ * Test class for {@link MembersFriendsCounter}
  * 
  * @author NitinK
  *
@@ -31,7 +31,7 @@ public class FriendsCounterTest {
 	@Test
 	public void testCountForMemberId1() throws FileNotFoundException,
 			IOException {
-		FriendsCounter counter = new FriendsCounter(graphFile.getPath());
+		MembersFriendsCounter counter = new MembersFriendsCounter(graphFile.getPath());
 		Map<String, Member> mapOfMembersToQueryFriendsCountFor = new HashMap<String, Member>();
 		String memberId = "1";
 		mapOfMembersToQueryFriendsCountFor.put(memberId, new Member(memberId));
@@ -47,7 +47,7 @@ public class FriendsCounterTest {
 	@Test
 	public void testCountForMemberId62() throws FileNotFoundException,
 			IOException {
-		FriendsCounter counter = new FriendsCounter(graphFile.getPath());
+		MembersFriendsCounter counter = new MembersFriendsCounter(graphFile.getPath());
 		Map<String, Member> mapOfMembersToQueryFriendsCountFor = new HashMap<String, Member>();
 		String memberId = "62";
 		mapOfMembersToQueryFriendsCountFor.put(memberId, new Member(memberId));
@@ -63,7 +63,7 @@ public class FriendsCounterTest {
 	@Test
 	public void testCountForNonExistingMember() throws FileNotFoundException,
 			IOException {
-		FriendsCounter counter = new FriendsCounter(graphFile.getPath());
+		MembersFriendsCounter counter = new MembersFriendsCounter(graphFile.getPath());
 		Map<String, Member> mapOfMembersToQueryFriendsCountFor = new HashMap<String, Member>();
 		String memberId = "62213123";
 		mapOfMembersToQueryFriendsCountFor.put(memberId, new Member(memberId));

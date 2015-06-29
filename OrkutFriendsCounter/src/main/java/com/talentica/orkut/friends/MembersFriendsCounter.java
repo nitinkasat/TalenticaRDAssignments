@@ -8,55 +8,51 @@ import java.io.IOException;
 import java.util.Map;
 
 import com.talentica.orkut.builder.MemberBuilder;
-import com.talentica.orkut.builder.TabDelimatedStringMemberBuilder;
+import com.talentica.orkut.builder.TabDelimatedLineMemberBuilder;
 import com.talentica.orkut.domain.Member;
 import com.talentica.orkut.util.TimeTracker;
 
 /**
- * Counter to count no. of friends from a friendship graph file for a collection
- * of Orkut members.
+ * Counter to count no. of friends from a friendship graph file for of members.
  * 
  * @author NitinK
  *
  */
-public class FriendsCounter {
+public class MembersFriendsCounter {
 
 	private static final int DEFAULT_BUFFER_SIZE = 65536;
 
 	private String friendshipGraphFileLocation;
 
-	private static final MemberBuilder memberBuilder = new TabDelimatedStringMemberBuilder();
+	private static final MemberBuilder memberBuilder = new TabDelimatedLineMemberBuilder();
 
-	public FriendsCounter(String friendshipGraphFilePath) {
+	public MembersFriendsCounter(String friendshipGraphFilePath) {
 		friendshipGraphFileLocation = friendshipGraphFilePath;
 	}
 
 	/**
 	 * Counts no. of friends from friendship graph file for the members present
-	 * in map.
+	 * in map and returns updated map with count of no. friends for each member.
 	 * 
 	 * @param mapOfMembersToQueryFriendsCountFor
 	 * @return
 	 * @throws FileNotFoundException
 	 * @throws IOException
 	 */
-	public Map<String, Member> count(
-			Map<String, Member> mapOfMembersToQueryFriendsCountFor)
+	public Map<String, Member> count(Map<String, Member> mapOfMembersToQueryFriendsCountFor)
 			throws FileNotFoundException, IOException {
 		TimeTracker timeTracker = new TimeTracker();
 		timeTracker.start();
 		String lineRead = null;
 		File graphFile = new File(friendshipGraphFileLocation);
 		FileReader graphFileReader = new FileReader(graphFile);
-		BufferedReader graphFileBufferedReader = new BufferedReader(
-				graphFileReader, DEFAULT_BUFFER_SIZE);
+		BufferedReader graphFileBufferedReader = new BufferedReader(graphFileReader, DEFAULT_BUFFER_SIZE);
 		Member queryMember = null;
 		while (((lineRead = graphFileBufferedReader.readLine()) != null)) {
 			Member graphMember = memberBuilder.buildMember(lineRead);
-			queryMember = mapOfMembersToQueryFriendsCountFor.get(graphMember
-					.getId());
+			queryMember = mapOfMembersToQueryFriendsCountFor.get(graphMember.getId());
 			if (queryMember != null) {
-				queryMember.addNewFriend();
+				queryMember.addNewFriend(graphMember);
 			}
 		}
 		graphFileBufferedReader.close();

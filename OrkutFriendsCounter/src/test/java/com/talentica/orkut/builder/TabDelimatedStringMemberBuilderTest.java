@@ -1,15 +1,15 @@
 package com.talentica.orkut.builder;
 
-import junit.framework.Assert;
-
 import org.junit.Test;
 
 import com.talentica.orkut.domain.Member;
 import com.talentica.orkut.util.TimeTracker;
 
+import junit.framework.Assert;
+
 public class TabDelimatedStringMemberBuilderTest {
 
-	private MemberBuilder memberBuilder = new TabDelimatedStringMemberBuilder();
+	private MemberBuilder memberBuilder = new TabDelimatedLineMemberBuilder();
 
 	@Test
 	public void testBuildMember() {
@@ -18,16 +18,12 @@ public class TabDelimatedStringMemberBuilderTest {
 		timeTracker.start();
 		Member member = memberBuilder.buildMember(tabDelimatedInput);
 		timeTracker.stop();
-		timeTracker.logTimeElapsedInMilliSeconds("testBuildMember");
 		Assert.assertNotNull(member);
 		Assert.assertNotNull(member.getId());
 		Assert.assertEquals("1", member.getId());
-		long timeElapsedInMilliSeconds = timeTracker
-				.getTimeElapsedInMilliSeconds();
-		org.junit.Assert.assertEquals(
-				"Took more than maximum expected time. Time taken:"
-						+ timeElapsedInMilliSeconds, true,
-				timeElapsedInMilliSeconds <= 1);
+		long timeElapsedInMilliSeconds = timeTracker.getTimeElapsedInMilliSeconds();
+		org.junit.Assert.assertEquals("Took more than maximum expected time. Time taken:" + timeElapsedInMilliSeconds,
+				true, timeElapsedInMilliSeconds <= 1);
 	}
 
 }

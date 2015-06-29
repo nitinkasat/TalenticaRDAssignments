@@ -25,9 +25,9 @@ public class MemberTest {
 	public void testAddNewFriend() {
 		Member member1 = new Member("1");
 		Assert.assertEquals(member1.getNoOfFriends(), 0);
-		member1.addNewFriend();
+		member1.addNewFriend(new Member("2"));
 		Assert.assertEquals(member1.getNoOfFriends(), 1);
-		member1.addNewFriend();
+		member1.addNewFriend(new Member("3"));
 		Assert.assertEquals(member1.getNoOfFriends(), 2);
 	}
 

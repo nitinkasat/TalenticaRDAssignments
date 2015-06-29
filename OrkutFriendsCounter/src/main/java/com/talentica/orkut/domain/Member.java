@@ -20,7 +20,7 @@ public class Member {
 	/**
 	 * Increments no. of friends member have by one.
 	 */
-	public void addNewFriend() {
+	public void addNewFriend(Member friend) {
 		noOfFriends++;
 	}
 
