@@ -1,4 +1,4 @@
-package com.talentica.orkut.builder;
+package com.talentica.orkut.util;
 
 import java.io.BufferedReader;
 import java.io.File;
