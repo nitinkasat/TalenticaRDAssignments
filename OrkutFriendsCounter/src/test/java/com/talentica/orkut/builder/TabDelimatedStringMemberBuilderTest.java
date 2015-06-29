@@ -23,7 +23,7 @@ public class TabDelimatedStringMemberBuilderTest {
 		Assert.assertEquals("1", member.getId());
 		long timeElapsedInMilliSeconds = timeTracker.getTimeElapsedInMilliSeconds();
 		org.junit.Assert.assertEquals("Took more than maximum expected time. Time taken:" + timeElapsedInMilliSeconds,
-				true, timeElapsedInMilliSeconds <= 1);
+				true, timeElapsedInMilliSeconds <= 5);
 	}
 
 }
