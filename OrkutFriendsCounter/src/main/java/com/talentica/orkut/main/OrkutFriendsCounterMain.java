@@ -60,7 +60,7 @@ public class OrkutFriendsCounterMain {
 			for (Map.Entry<String, Member> entry : results.entrySet()) {
 				bufferedOutputStream.write((entry.getKey()
 						+ MEMBER_ID_COUNT_SEPERATOR
-						+ entry.getValue().getFriendsCount() + LINE_SEPERATOR)
+						+ entry.getValue().getNoOfFriends() + LINE_SEPERATOR)
 						.getBytes(StandardCharsets.US_ASCII));
 			}
 		} finally {

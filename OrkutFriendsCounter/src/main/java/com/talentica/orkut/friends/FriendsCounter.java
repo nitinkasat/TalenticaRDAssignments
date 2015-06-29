@@ -56,7 +56,7 @@ public class FriendsCounter {
 			queryMember = mapOfMembersToQueryFriendsCountFor.get(graphMember
 					.getId());
 			if (queryMember != null) {
-				queryMember.incrementCountOfFriends();
+				queryMember.addNewFriend();
 			}
 		}
 		graphFileBufferedReader.close();

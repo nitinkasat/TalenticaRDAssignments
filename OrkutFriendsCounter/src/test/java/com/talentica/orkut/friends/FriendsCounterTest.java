@@ -41,7 +41,7 @@ public class FriendsCounterTest {
 		Assert.assertEquals(1, mapOfMembersToQueryFriendsCountFor.size());
 		Member memberWithId1 = mapOfMembersToQueryFriendsCountFor.get(memberId);
 		Assert.assertNotNull(memberWithId1);
-		Assert.assertEquals(13, memberWithId1.getFriendsCount());
+		Assert.assertEquals(13, memberWithId1.getNoOfFriends());
 	}
 
 	@Test
@@ -57,7 +57,7 @@ public class FriendsCounterTest {
 		Assert.assertEquals(1, mapOfMembersToQueryFriendsCountFor.size());
 		Member memberWithId1 = mapOfMembersToQueryFriendsCountFor.get(memberId);
 		Assert.assertNotNull(memberWithId1);
-		Assert.assertEquals(7, memberWithId1.getFriendsCount());
+		Assert.assertEquals(7, memberWithId1.getNoOfFriends());
 	}
 
 	@Test
@@ -73,7 +73,7 @@ public class FriendsCounterTest {
 		Assert.assertEquals(1, mapOfMembersToQueryFriendsCountFor.size());
 		Member memberWithId1 = mapOfMembersToQueryFriendsCountFor.get(memberId);
 		Assert.assertNotNull(memberWithId1);
-		Assert.assertEquals(0, memberWithId1.getFriendsCount());
+		Assert.assertEquals(0, memberWithId1.getNoOfFriends());
 	}
 
 }

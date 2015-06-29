@@ -11,7 +11,7 @@ public class Member {
 
 	private String id;
 
-	private long friendsCount = 0;
+	private long noOfFriends = 0;
 
 	public Member(String memberId) {
 		this.id = memberId;
@@ -20,15 +20,15 @@ public class Member {
 	/**
 	 * Increments no. of friends member have by one.
 	 */
-	public void incrementCountOfFriends() {
-		friendsCount++;
+	public void addNewFriend() {
+		noOfFriends++;
 	}
 
 	/**
 	 * Returns no. of friends a member have.
 	 */
-	public long getFriendsCount() {
-		return friendsCount;
+	public long getNoOfFriends() {
+		return noOfFriends;
 	}
 
 	/**
@@ -63,7 +63,7 @@ public class Member {
 
 	@Override
 	public String toString() {
-		return "ID:\t" + getId() + "\tNo of friends:\t" + getFriendsCount();
+		return "ID:\t" + getId() + "\tNo of friends:\t" + getNoOfFriends();
 	}
 
 }

@@ -22,13 +22,13 @@ public class MemberTest {
 	}
 
 	@Test
-	public void testAddFriend() {
+	public void testAddNewFriend() {
 		Member member1 = new Member("1");
-		Assert.assertEquals(member1.getFriendsCount(), 0);
-		member1.incrementCountOfFriends();
-		Assert.assertEquals(member1.getFriendsCount(), 1);
-		member1.incrementCountOfFriends();
-		Assert.assertEquals(member1.getFriendsCount(), 2);
+		Assert.assertEquals(member1.getNoOfFriends(), 0);
+		member1.addNewFriend();
+		Assert.assertEquals(member1.getNoOfFriends(), 1);
+		member1.addNewFriend();
+		Assert.assertEquals(member1.getNoOfFriends(), 2);
 	}
 
 }
