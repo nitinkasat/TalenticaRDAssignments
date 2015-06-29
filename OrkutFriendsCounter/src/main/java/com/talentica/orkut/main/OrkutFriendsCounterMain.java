@@ -9,6 +9,7 @@ import com.talentica.orkut.domain.Member;
 import com.talentica.orkut.friends.FriendsCountFileWriter;
 import com.talentica.orkut.friends.MembersFriendsCounter;
 import com.talentica.orkut.util.MembersQueryFileReader;
+import com.talentica.orkut.util.TimeTracker;
 
 /**
  * Main class for Orkut friends counter application.
@@ -21,11 +22,15 @@ public class OrkutFriendsCounterMain {
 	private static final String OUTPUT_FILE_NAME = "OrkutFriendCounterResults";
 
 	public static void main(String[] args) throws IOException {
+		TimeTracker timeTracker = new TimeTracker();
+		timeTracker.start();
 		validateArguments(args);
 		Map<String, Member> membersToGetFriendsCountInformationFor = readQueriesFile(args);
 		Map<String, Member> membersWithUpdatedCountOfFriends = countNoOfFriends(args,
 				membersToGetFriendsCountInformationFor);
 		writeResultsToOutputFile(args, membersWithUpdatedCountOfFriends);
+		timeTracker.stop();
+		timeTracker.logTimeElapsedInMilliSeconds("OrkutFriendsCounterMain-main method");
 	}
 
 	private static void validateArguments(String[] args) {
